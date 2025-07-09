@@ -147,13 +147,11 @@ Input: [12, 15, 22]
 Output: true
 */
 let input = [12, 15, 22];
-let output;
+let output = true;
 for (let index = 0; index < input.length; index++) {
   if (input[index] < 10) {
     output = false;
     break;
-  } else {
-    output = true;
   }
 }
 
@@ -165,11 +163,7 @@ Input: [10, 15, 30, 20, 45]
 Output: [15, 30, 45]
 */
 let numbers = [10, 15, 30, 20, 45];
-let divisibleBy = numbers.filter((num) => {
-  if (num % 3 == 0 && num % 5 == 0) {
-    return num;
-  }
-});
+let divisibleBy = numbers.filter((num) => num % 3 === 0 && num % 5 === 0);
 console.log(divisibleBy);
 
 /*
@@ -348,18 +342,15 @@ Use two flags: hasUpper and hasLower.
 let inputStr = "HelloWorld";
 let hasUpper = false;
 let hasLower = false;
-let result;
 
 for (let i = 0; i < inputStr.length; i++) {
   let char = inputStr[i];
   if (char >= "A" && char <= "Z") hasUpper = true;
   if (char >= "a" && char <= "z") hasLower = true;
-  if (hasUpper && hasLower) {
-    result = true;
-  } else {
-    result = false;
-  }
+  if (hasUpper && hasLower) break;
 }
+
+let result = hasUpper && hasLower;
 console.log(result);
 
 /*
@@ -374,7 +365,7 @@ let isPrime = true;
 if (inputNo <= 1) {
   isPrime = false;
 } else {
-  for (let i = 2; i < Math.sqrt(inputNo); i++) {
+  for (let i = 2; i <= Math.sqrt(inputNo); i++) {
     if (inputNo % i === 0) {
       isPrime = false;
       break;
